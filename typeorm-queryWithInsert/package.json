@@ -15,6 +15,7 @@
       "typeorm": "0.2.25"
    },
    "scripts": {
-      "start": "ts-node src/index.ts"
+      "start:multipleRowInsert": "ts-node src/multipleRowInsert.ts",
+      "start:singleRowInsert":"ts-node src/singleRowInsert.ts"
    }
 }

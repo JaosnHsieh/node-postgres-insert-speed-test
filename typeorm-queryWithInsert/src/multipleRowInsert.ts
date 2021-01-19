@@ -15,12 +15,12 @@ createConnection({
 })
   .then(async (connection) => {
     console.log('postgres connected');
-    query();
-    // insert();
-    setTimeout(() => {
-      console.log('$ start insert');
-      insert();
-    }, 5000);
+    // query();
+    insert();
+    // setTimeout(() => {
+    //   console.log('$ start insert');
+    //   insert();
+    // }, 5000);
   })
   .catch((error) => console.log(error));
 
@@ -36,11 +36,14 @@ async function query(count = 1000) {
 
 async function insert(count = 1000) {
   var startAt = process.hrtime();
+
+  const tests = [];
   for (let i = 0; i < count; ++i) {
     const test = new Test();
     test.testColumn1 = `i ${i} ${Math.random()}`;
-    await test.save({ transaction: false });
+    tests.push(test);
   }
+  await Test.save(tests);
 
   var diff = process.hrtime(startAt);
   var time = diff[0] * 1e3 + diff[1] * 1e-6;
