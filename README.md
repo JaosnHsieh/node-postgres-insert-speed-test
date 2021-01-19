@@ -1,4 +1,4 @@
-this is a reproduce repo for issue ["how to improve single insert query"]()
+this is a reproduce repo for issue ["how to improve single insert query"](https://github.com/brianc/node-postgres/issues/2447)
 
 `node ./index.js`
 
