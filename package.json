@@ -7,6 +7,7 @@
   "author": "jasonh",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.20",
     "pg": "^8.5.1"
   }
 }
