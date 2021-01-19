@@ -10,7 +10,7 @@ postgres connected
 $ insert 1000 rows done. rows / second 104.89491536172933
 $ insert 1000 rows done. rows / second 102.86935071333563
 $ insert 1000 rows done. rows / second 113.68657570252454
-^C
+
 ```
 
 `$ yarn start:multipleRowInsert`
