@@ -18,14 +18,16 @@ process.env.PGPASSWORD = 'example';
     var startAt = process.hrtime();
 
     for (let i = 0; i < count; ++i) {
-      const res = await pool.query(
-        'INSERT INTO "test"("createdAt", "updatedAt", "testColumn1", "testColumn2", "testColumn3", "testColumn4", "testColumn5", "testColumn6") VALUES ($1, $2, $3, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT) RETURNING "createdAt", "updatedAt", "id"',
+      await pool.query(
+        'INSERT INTO "test"("createdAt", "updatedAt", "testColumn1") VALUES ($1, $2, $3) RETURNING "createdAt", "updatedAt", "id"',
         [
           new Date().toISOString(),
           new Date().toISOString(),
           `i ${i} ${Math.random()}`,
         ],
-      );
+      ).catch(err=>{
+          console.error('$ err',err)
+      });
       //  console.log('res',res.rows)
     }
     var diff = process.hrtime(startAt);
